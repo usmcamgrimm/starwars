@@ -9,7 +9,15 @@ function Header() {
       <div className="container">
         <div className="flex items-center justify-center hscreen mt-12">
           <div className="columns-3">
-            
+            <p className="text-2xl text-blue">
+              Characters
+            </p>
+            <p className="text-2xl text-blue">
+              Planets
+            </p>
+            <p className="text-2xl text-blue">
+              Species
+            </p>
           </div>
         </div>
       </div>
