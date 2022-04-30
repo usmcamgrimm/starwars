@@ -7,7 +7,7 @@ function Header() {
         <img src={logo} alt='Star Wars logo' className='lg:w-3/5 md:w-full' />
       </div>
       <div className="container">
-        <div className="flex items-center justify-center hscreen mt-12">
+        <div className="flex items-center justify-center mt-12">
           <div className="columns-3">
             <p className="text-2xl text-blue">
               Characters
