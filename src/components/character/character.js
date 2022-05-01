@@ -1,11 +1,17 @@
 import React from 'react'
+import Table from 'react-bootstrap/Table'
 
-const Character = () => {
+function Character() {
   return (
-    <div className="container">
-      <h2>Characters</h2>
-      <table>
-        <thead className="mt-12">
+    <div className='data-table'>
+      <Table
+        striped
+        bordered
+        variant='dark'
+        responsive
+        className='mt-5'
+      >
+        <thead className='table-header'>
           <tr>
             <th>Name</th>
             <th>Planet</th>
@@ -13,15 +19,15 @@ const Character = () => {
             <th>Birth</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody classname='table-body'>
           <tr>
-            <td>{Character.homeworld}</td>
             <td>{Character.name}</td>
+            <td>{Character.homeworld}</td>
             <td>{Character.species}</td>
             <td>{Character.birth_year}</td>
           </tr>
         </tbody>
-      </table>
+      </Table>
     </div>
   )
 }
