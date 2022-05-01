@@ -8,7 +8,7 @@ function Header() {
       <div className="container pt-4">
         <img src={logo} alt='Star Wars logo' className='logo' />
       </div>
-      <Nav className="justify-content-center pt-4">
+      <Nav className="justify-content-center pt-5">
         <Nav.Item>
           <Nav.Link href="/character">Characters</Nav.Link>
         </Nav.Item>

@@ -2,5 +2,5 @@ body {
   background-image: url('../../images/star-lines.jpg');
   background-size: auto;
   background-repeat: no-repeat;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
 }
