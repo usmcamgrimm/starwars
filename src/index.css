@@ -15,6 +15,9 @@ green: #2ff924 rgb(47, 249, 36)
 * {
   margin: 0;
 }
+html {
+  font-size: 16px;
+}
 html, body {
   height: 100%;
 }

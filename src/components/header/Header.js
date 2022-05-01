@@ -1,25 +1,24 @@
+import Nav from 'react-bootstrap/Nav'
 import logo from '../../images/sw-logo.png'
 import './header.css'
 
 function Header() {
   return (
     <>
-      <div className='container'>
+      <div className="container pt-4">
         <img src={logo} alt='Star Wars logo' className='logo' />
       </div>
-      <div className="nav">
-        <div className="nav-links">
-          <p className="link-text">
-            Characters
-          </p>
-          <p className="link-text">
-            Planets
-          </p>
-          <p className="link-text">
-            Species
-          </p>
-        </div>
-      </div>
+      <Nav className="justify-content-center pt-4">
+        <Nav.Item>
+          <Nav.Link href="/character">Characters</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/planets">Planets</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/species">Species</Nav.Link>
+        </Nav.Item>
+      </Nav>
     </>
   )
 }
