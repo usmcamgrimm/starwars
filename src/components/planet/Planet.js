@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
-function Planet() {
+function Planet(props) {
   return (
     <div className='data-table'>
       <Table
@@ -22,14 +22,16 @@ function Planet() {
           </tr>
         </thead>
         <tbody className='table-body'>
-          <tr>
-            <td>{planet.name}</td>
-            <td>{planet.population}</td>
-            <td>{planet.residents}</td>
-            <td>{planet.diameter}</td>
-            <td>{planet.orbit}</td>
-            <td>{planet.rotation}</td>
-          </tr>
+          {props.planets.map((planet, index) => (
+            <tr key={index}>
+              <td>{planet.name}</td>
+              <td>{planet.population}</td>
+              <td>{planet.residents}</td>
+              <td>{planet.diameter}</td>
+              <td>{planet.orbit}</td>
+              <td>{planet.rotation}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

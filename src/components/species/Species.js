@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
-function Species() {
+function Species(props) {
   return (
     <div className="data-table">
       <Table
@@ -22,14 +22,16 @@ function Species() {
           </tr>
         </thead>
         <tbody className='table-body'>
-          <tr>
-            <td>{species.name}</td>
-            <td>{species.homeworld}</td>
-            <td>{species.classification}</td>
-            <td>{species.language}</td>
-            <td>{species.average_height}</td>
-            <td>{species.average_lifespan}</td>
-          </tr>
+          {props.species.map((species, index) => (
+            <tr key={index}>
+              <td>{species.name}</td>
+              <td>{species.homeworld}</td>
+              <td>{species.classification}</td>
+              <td>{species.language}</td>
+              <td>{species.average_height}</td>
+              <td>{species.average_lifespan}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>

@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
-function Character() {
+function Character(props) {
   return (
     <div className='data-table'>
       <Table
@@ -19,13 +19,15 @@ function Character() {
             <th>Birth</th>
           </tr>
         </thead>
-        <tbody classname='table-body'>
-          <tr>
-            <td>{Character.name}</td>
-            <td>{Character.homeworld}</td>
-            <td>{Character.species}</td>
-            <td>{Character.birth_year}</td>
-          </tr>
+        <tbody className='table-body'>
+          {props.characters.map((character, index) => (
+            <tr key={index}>
+              <td>{character.name}</td>
+              <td>{character.homeworld}</td>
+              <td>{character.species}</td>
+              <td>{character.birth_year}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </div>
