@@ -7,8 +7,9 @@ function Characters(props) {
       <Table
         striped
         bordered
-        variant='dark'
+        hover
         responsive
+        variant='dark'
         className='mt-5'
       >
         <thead className='table-header'>
