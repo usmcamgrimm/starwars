@@ -1,4 +1,6 @@
-a.nav-link {
-  font-family: "Nova Square", "Inter", sans-serif;
-  font-size: 24px;
+h1 {
+  font-family: "Orbitron", "Inter", sans-serif;
+  font-size: 36px;
+  color: rgb(46, 103, 248);
+  letter-spacing: 2px;
 }
