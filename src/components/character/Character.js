@@ -1,7 +1,7 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table'
 
-function Character(props) {
+function Characters(props) {
   return (
     <div className='data-table'>
       <Table
@@ -34,4 +34,4 @@ function Character(props) {
   )
 }
 
-export default Character
+export default Characters
