@@ -10,13 +10,13 @@ function Header() {
       </div>
       <Nav className="justify-content-center pt-5">
         <Nav.Item>
-          <Nav.Link href="/character">Characters</Nav.Link>
+          <Nav.Link href="/Character">Characters</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/planets">Planets</Nav.Link>
+          <Nav.Link href="/Planet">Planets</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/species">Species</Nav.Link>
+          <Nav.Link href="/Species">Species</Nav.Link>
         </Nav.Item>
       </Nav>
     </>
