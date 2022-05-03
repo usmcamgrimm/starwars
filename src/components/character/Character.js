@@ -18,6 +18,8 @@ function Characters(props) {
             <th>Planet</th>
             <th>Species</th>
             <th>Birth</th>
+            <th>Height</th>
+            <th>Weight</th>
           </tr>
         </thead>
         <tbody className='table-body'>
@@ -27,6 +29,8 @@ function Characters(props) {
               <td>{character.homeworld}</td>
               <td>{character.species}</td>
               <td>{character.birth_year}</td>
+              <td>{character.height}</td>
+              <td>{character.mass}</td>
             </tr>
           ))}
         </tbody>
