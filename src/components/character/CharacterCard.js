@@ -1,20 +1,27 @@
 import React from 'react'
-import Card from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
 
-function CharacterCard() {
+function CharacterCard(props) {
+  const {
+    name,
+    homeworld,
+    species,
+    birth_year,
+    height,
+    mass
+  } = props
+  
   return (
     <Card style={{ width: '10rem' }}>
       <Card.Body>
         <Card.Title>
-          {character.name}
+          {name}
         </Card.Title>
-        <ListGroup variant="flush">
-          <ListGroup.Item>{character.homeworld}</ListGroup.Item>
-          <ListGroup.Item>{character.species}</ListGroup.Item>
-          <ListGroup.Item>{character.birth_year}</ListGroup.Item>
-          <ListGroup.Item>{character.height}</ListGroup.Item>
-          <ListGroup.Item>{character.mass}</ListGroup.Item>
-        </ListGroup>
+        <Card.Text>{homeworld}</Card.Text>
+        <Card.Text>{species}</Card.Text>
+        <Card.Text>{birth_year}</Card.Text>
+        <Card.Text>{height}</Card.Text>
+        <Card.Text>{mass}</Card.Text>
       </Card.Body>
     </Card>
   )
