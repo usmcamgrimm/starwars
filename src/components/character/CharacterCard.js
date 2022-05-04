@@ -1,27 +1,20 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
+import './charactercard.css'
 
-function CharacterCard(props) {
-  const {
-    name,
-    homeworld,
-    species,
-    birth_year,
-    height,
-    mass
-  } = props
+function CharacterCard(character) {
   
   return (
-    <Card style={{ width: '10rem' }}>
+    <Card style={{ width: '16rem' }}>
       <Card.Body>
         <Card.Title>
-          {name}
+          {character.name}
         </Card.Title>
-        <Card.Text>{homeworld}</Card.Text>
-        <Card.Text>{species}</Card.Text>
-        <Card.Text>{birth_year}</Card.Text>
-        <Card.Text>{height}</Card.Text>
-        <Card.Text>{mass}</Card.Text>
+        <Card.Text>{character.homeworld}</Card.Text>
+        <Card.Text>{character.species}</Card.Text>
+        <Card.Text>{character.birth_year}</Card.Text>
+        <Card.Text>{character.height}</Card.Text>
+        <Card.Text>{character.mass}</Card.Text>
       </Card.Body>
     </Card>
   )
