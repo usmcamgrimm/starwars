@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from '../header/Header'
 import CharacterCard from '../character/CharacterCard'
-import Character from '../character/Character'
+// import Character from '../character/Character'
 import '@fontsource/inter'
 import '@fontsource/orbitron'
 import './app.css'
@@ -25,7 +25,7 @@ useEffect(() => {
   return(
     <div className="container">
       <Header />
-      <Character characters={characters} />
+      {/* <Character characters={characters} /> */}
       <CharacterCard characters={characters} />
     </div>
   )
