@@ -1,40 +1,49 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import './charactercard.css'
 
-function CharacterCard(characters) {
+function CharacterCard({characterCards}) {
+  const [characters, setCharacters] = useState([])
   const cardsPerRow = 5
 
-  const getCardLayout = (props, characters) => {
-    return (
-      <Col>
-        <Card style={{ width: '16rem' }}>
-          <Card.Body>
-          {props.characters.map((character, index) => (
-            <div>
-              <Card.Title key={index}>
-              {character.name}
-              </Card.Title>
-              <Card.Text>{character.homeworld}</Card.Text>
-              <Card.Text>{character.species}</Card.Text>
-              <Card.Text>{character.birth_year}</Card.Text>
-              <Card.Text>{character.height}</Card.Text>
-              <Card.Text>{character.mass}</Card.Text>
-            </div>
-          ))}
-          </Card.Body>
-        </Card>
-      </Col>
-    )
+  const fetchCharacters = async () => {
+    const res = await fetch('https://swapi.dev/api/people/')
+    const data = await res.json()
+    setCharacters(data.results)
+    console.log(data.results)
   }
-  
+
+  useEffect(() => {
+    fetchCharacters()
+  }, [])
+
+  const setCardLayout = () => {
+    let charCards = characters.map((character, index) => {
+      return (
+        <Col>
+          <Card style={{ width: '16rem' }}>
+            <Card.Title key={index}>
+              {character.name}
+            </Card.Title>
+            <Card.Text>{character.homeworld}</Card.Text>
+            <Card.Text>{character.species}</Card.Text>
+            <Card.Text>{character.birth_year}</Card.Text>
+            <Card.Text>{character.height}</Card.Text>
+            <Card.Text>{character.mass}</Card.Text>
+          </Card>
+        </Col>
+      )
+    })
+    return charCards
+  }
+
   return (
     <Container>
       <Row xs={1} md={cardsPerRow}>
-        {getCardLayout()}
+        {setCardLayout}
       </Row>
     </Container>
   )
