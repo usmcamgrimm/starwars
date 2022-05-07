@@ -5,20 +5,27 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import './charactercard.css'
 
-function CharacterCard({characterCards}) {
+function CharacterCard() {
   const [characters, setCharacters] = useState([])
   const cardsPerRow = 5
+
+
+  useEffect(() => {
+    const getCharacters = async () => {
+      const getCharacterData = await fetchCharacters()
+      setCharacters(getCharacterData)
+    }
+
+    getCharacters()
+  }, [])
 
   const fetchCharacters = async () => {
     const res = await fetch('https://swapi.dev/api/people/')
     const data = await res.json()
-    setCharacters(data.results)
-    console.log(data.results)
-  }
 
-  useEffect(() => {
-    fetchCharacters()
-  }, [])
+    return data.results
+  }
+  
 
   const setCardLayout = () => {
     let charCards = characters.map((character, index) => {
@@ -43,7 +50,7 @@ function CharacterCard({characterCards}) {
   return (
     <Container>
       <Row xs={1} md={cardsPerRow}>
-        {setCardLayout}
+        {setCardLayout()}
       </Row>
     </Container>
   )
