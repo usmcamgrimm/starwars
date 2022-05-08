@@ -11,7 +11,7 @@ function Header() {
       <Nav className="justify-content-center pt-5">
         <Nav.Item>
           <h1>
-            Star Wars Characters
+            CHARACTERS
           </h1>
         </Nav.Item>
       </Nav>

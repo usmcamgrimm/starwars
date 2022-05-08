@@ -3,6 +3,7 @@ import Particles from 'react-tsparticles'
 import { loadFull } from 'tsparticles'
 import particlesOptions from './particles.json'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Container from 'react-bootstrap/Container'
 import Header from './components/Header/Header'
 import CharacterCard from './components/Character/CharacterCard'
 import '@fontsource/inter'
@@ -14,12 +15,12 @@ function App() {
         loadFull(main)
     }, [])
 
-    return(
-        <div className="container">
-            <Particles options={particlesOptions} init={particlesInit}/>
+    return (
+        <Container>
+            <Particles options={particlesOptions} init={particlesInit} />
             <Header />
             <CharacterCard />
-        </div>
+        </Container>
     )
 }
 

@@ -25,21 +25,27 @@ function CharacterCard() {
 
     return data.results
   }
-  
+
 
   const setCardLayout = () => {
     let charCards = characters.map((character, index) => {
       return (
         <Col>
-          <Card style={{ width: '16rem' }}>
-            <Card.Title key={index}>
-              {character.name}
-            </Card.Title>
-            <Card.Text>{character.homeworld}</Card.Text>
-            <Card.Text>{character.species}</Card.Text>
-            <Card.Text>{character.birth_year}</Card.Text>
-            <Card.Text>{character.height}</Card.Text>
-            <Card.Text>{character.mass}</Card.Text>
+          <Card
+            border="primary"
+            key={index}
+            className="mb-4"
+          >
+            <Card.Header>
+              <Card.Title className="text-center">
+                {character.name}
+              </Card.Title>
+            </Card.Header>
+            <Card.Text>Home: {character.homeworld}</Card.Text>
+            <Card.Text>Species: {character.species}</Card.Text>
+            <Card.Text>Born: {character.birth_year}</Card.Text>
+            <Card.Text>Height: {character.height}</Card.Text>
+            <Card.Text>Weight: {character.mass}</Card.Text>
           </Card>
         </Col>
       )
@@ -48,7 +54,7 @@ function CharacterCard() {
   }
 
   return (
-    <Container>
+    <Container className="mt-5">
       <Row xs={1} md={cardsPerRow}>
         {setCardLayout()}
       </Row>
