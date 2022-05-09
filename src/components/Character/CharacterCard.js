@@ -32,9 +32,8 @@ function CharacterCard() {
       return (
         <Col>
           <Card
-            border="primary"
             key={index}
-            className="mb-4"
+            className="mb-3"
           >
             <Card.Header>
               <Card.Title className="text-center">
@@ -54,7 +53,7 @@ function CharacterCard() {
   }
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-4">
       <Row xs={1} md={cardsPerRow}>
         {setCardLayout()}
       </Row>
