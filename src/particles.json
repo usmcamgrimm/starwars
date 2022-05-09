@@ -338,7 +338,7 @@
       },
       "random": false,
       "size": true,
-      "speed": 5,
+      "speed": 10,
       "spin": {
         "acceleration": 0,
         "enable": false
@@ -346,7 +346,7 @@
       "straight": false,
       "trail": {
         "enable": true,
-        "length": 3,
+        "length": 6,
         "fillColor": {
           "value": "#000000"
         }
@@ -461,7 +461,7 @@
       },
       "value": {
         "min": 1,
-        "max": 10
+        "max": 5
       },
       "animation": {
         "count": 0,
