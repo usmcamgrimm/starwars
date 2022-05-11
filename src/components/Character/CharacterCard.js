@@ -7,25 +7,19 @@ import './character-card.css'
 
 function CharacterCard() {
   const [characters, setCharacters] = useState([])
+  // const [loading, setLoading] = useState(true);
   const cardsPerRow = 5
 
-
   useEffect(() => {
-    const getCharacters = async () => {
-      const getCharacterData = await fetchCharacters()
-      setCharacters(getCharacterData)
+    async function fetchCharacters() {
+      const res = await fetch('https://swapi.dev/api/people/')
+      const data = await res.json()
+      setCharacters(data.results)
+      console.log(data.results)
     }
 
-    getCharacters()
+    fetchCharacters()
   }, [])
-
-  const fetchCharacters = async () => {
-    const res = await fetch('https://swapi.dev/api/people/')
-    const data = await res.json()
-
-    return data.results
-  }
-
 
   const setCardLayout = () => {
     let charCards = characters.map((character, index) => {
