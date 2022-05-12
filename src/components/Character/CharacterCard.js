@@ -7,6 +7,8 @@ import './character-card.css'
 
 function CharacterCard() {
   const [characters, setCharacters] = useState([])
+  const [planets, setPlanets] = useState([])
+  const [species, setSpecies] = useState([])
   // const [loading, setLoading] = useState(true);
   const cardsPerRow = 5
 
@@ -18,7 +20,38 @@ function CharacterCard() {
       console.log(data.results)
     }
 
+    async function fetchPlanets() {
+      const res = await fetch('https://swapi.dev/api/planets/')
+      const data = await res.json()
+      setPlanets(data.results)
+      console.log(data.results)
+    }
+
+    async function fetchSpecies() {
+      const res = await fetch('https://swapi.dev/api/species/')
+      const data = await res.json()
+      setSpecies(data.results)
+      console.log(data.results)
+    }
+
+    async function resolveData(characters) {
+      for (const element of characters.results) {
+        await fetchPlanets(element.planets.toString().slice(21)).then(async planetTitle => {
+          await fetchSpecies(element.species.toString().slice(21)).then(async speciesName => {
+
+            return {
+              ...character,
+              homeworld: planets.name,
+              species: species.name
+            }
+          }
+        })
+      }
+    }
+
     fetchCharacters()
+    fetchPlanets()
+    fetchSpecies()
   }, [])
 
   const setCardLayout = () => {
