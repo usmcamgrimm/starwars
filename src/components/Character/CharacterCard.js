@@ -13,46 +13,15 @@ function CharacterCard() {
   const cardsPerRow = 5
 
   useEffect(() => {
-    async function fetchCharacters() {
-      const res = await fetch('https://swapi.dev/api/people/')
-      const data = await res.json()
-      setCharacters(data.results)
-      console.log(data.results)
-    }
-
-    async function fetchPlanets() {
-      const res = await fetch('https://swapi.dev/api/planets/')
-      const data = await res.json()
-      setPlanets(data.results)
-      console.log(data.results)
-    }
-
-    async function fetchSpecies() {
-      const res = await fetch('https://swapi.dev/api/species/')
-      const data = await res.json()
-      setSpecies(data.results)
-      console.log(data.results)
-    }
-
-    async function resolveData(characters) {
-      for (const element of characters.results) {
-        await fetchPlanets(element.planets.toString().slice(21)).then(async planetTitle => {
-          await fetchSpecies(element.species.toString().slice(21)).then(async speciesName => {
-
-            return {
-              ...character,
-              homeworld: planets.name,
-              species: species.name
-            }
-          }
-        })
-      }
-    }
-
     fetchCharacters()
-    fetchPlanets()
-    fetchSpecies()
   }, [])
+
+  async function fetchCharacters() {
+    const res = await fetch('https://swapi.dev/api/people/')
+    const data = await res.json()
+    setCharacters(data.results)
+    console.log(data.results)
+  }
 
   const setCardLayout = () => {
     let charCards = characters.map((character, index) => {
