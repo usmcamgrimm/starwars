@@ -16,8 +16,10 @@ function CharacterCard() {
     fetchCharacters()
   }, [])
 
+  const api_url = 'https://swapi.dev/api/'
+
   async function fetchCharacters() {
-    const res = await fetch('https://swapi.dev/api/people/')
+    const res = await fetch(`${api_url}/people`)
     const data = await res.json()
     setCharacters(data.results)
     console.log(data.results)
