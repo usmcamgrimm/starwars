@@ -8,7 +8,6 @@ import './character-card.css'
 function CharacterCard() {
   const [characters, setCharacters] = useState([])
   const [planets, setPlanets] = useState([])
-  const [species, setSpecies] = useState([])
   // const [loading, setLoading] = useState(true);
   const cardsPerRow = 5
 
@@ -39,7 +38,6 @@ function CharacterCard() {
               </Card.Title>
             </Card.Header>
             <Card.Text>Home: {character.homeworld}</Card.Text>
-            <Card.Text>Species: {character.species}</Card.Text>
             <Card.Text>Born: {character.birth_year}</Card.Text>
             <Card.Text>Height: {character.height}</Card.Text>
             <Card.Text>Weight: {character.mass}</Card.Text>
