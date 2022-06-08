@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
@@ -7,7 +8,21 @@ import './character-card.css'
 function CharacterCard({ characterCard }) {
   const cardsPerRow = 5
 
-  const setCardLayout = ({ characters }) => {
+  const [characters, setCharacters] = useState([])
+
+  useEffect(() => {
+    fetchCharacters()
+  }, [])
+
+  const api_url = 'https://swapi.dev/api/'
+
+  async function fetchCharacters() {
+    const res = await fetch(`${api_url}/people`)
+    const data = await res.json()
+    setCharacters(data.results)
+  }
+
+  const setCardLayout = () => {
     let charCards = characters.map((character, index) => {
       return (
         <Col>

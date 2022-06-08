@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useCallback, useState } from 'react'
 import Particles from 'react-tsparticles'
 import { loadFull } from 'tsparticles'
 import particlesOptions from './particles.json'
@@ -15,27 +15,14 @@ function App() {
     const [characters, setCharacters] = useState([])
     // const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
-    const [charactersPerpage] = useState(10)
+    const [charactersPerPage] = useState(10)
 
     const particlesInit = useCallback(main => {
         loadFull(main)
     }, [])
 
-    useEffect(() => {
-        fetchCharacters()
-      }, [])
-    
-      const api_url = 'https://swapi.dev/api/'
-    
-      async function fetchCharacters() {
-        const res = await fetch(`${api_url}/people`)
-        const data = await res.json()
-        setCharacters(data.results)
-        console.log(data.results)
-      }
-
-    const indexOfLastCharacter = currentPage * charactersPerpage
-    const indexOfFirstCharacter = indexOfLastCharacter - charactersPerpage
+    const indexOfLastCharacter = currentPage * charactersPerPage
+    const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage
     const currentCharacters = characters.slice(indexOfFirstCharacter, indexOfLastCharacter)
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
@@ -44,8 +31,8 @@ function App() {
         <Container>
             <Particles options={particlesOptions} init={particlesInit} />
             <Header />
+            <Pagination charactersPerPage={charactersPerPage} totalCharacters={characters.length} paginate={paginate} />
             <CharacterCard characterCard={currentCharacters} />
-            <Pagination charactersPerPage={charactersPerpage} totalCharacters={characters.length} paginate={paginate} />
         </Container>
     )
 }
