@@ -5,13 +5,15 @@ function Pagination({ charactersPerPage, totalCharacters, paginate }) {
         pageNumbers.push(i)
     }
     return (
-        <div className="pagination">
-            {pageNumbers.map(number => (
-                <span key={number} className="page-number" onClick={() => paginate(number)}>
-                    {number}
-                </span>
-            ))}
-        </div>
+      <ul className="pagination">
+        {pageNumbers.map(number => (
+          <li key={number} className="page-item">
+            <a onClick={() => paginate(number)} href="!#" className="page-link">
+              {number}
+            </a>
+          </li>
+        ))}
+      </ul>
     )
 }
 
