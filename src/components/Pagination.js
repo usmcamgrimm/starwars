@@ -1,38 +1,18 @@
-import { useState, useEffect } from 'react'
-import Pagination from 'react-bootstrap/Pagination'
+function Pagination({ charactersPerPage, totalCharacters, paginate }) {
+    const pageNumbers = []
 
-function dataPagination(props) {
-  const [active, setActive] = useState(1)
-  const pages = []
-
-  useEffect(() => {
-    setActive(props.activePage)
-  }, [props.activePage])
-
-  function handleSelect(page) {
-    setActive(page)
-    props.handleNewPage(page)
-  }
-
-  for (let number = 1; number <= props.paginationCount; number++) {
-    pages.push(
-      <Pagination.Item 
-        key={number} 
-        active={number === active} 
-        onClick={() => { 
-          handleSelect(number) 
-        }}
-      >
-        {number}
-      </Pagination.Item>
-    );
-  }
-  
-  return (
-    <div>
-      
-    </div>
-  )
+    for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
+        pageNumbers.push(i)
+    }
+    return (
+        <div className="pagination">
+            {pageNumbers.map(number => (
+                <span key={number} className="page-number" onClick={() => paginate(number)}>
+                    {number}
+                </span>
+            ))}
+        </div>
+    )
 }
 
-export default dataPagination
+export default Pagination
