@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Card from 'react-bootstrap/Card'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import './character-card.css'
 
-function CharacterCard({ characterCard }) {
-  const cardsPerRow = 5
-
+function CharacterCard() {
   const [characters, setCharacters] = useState([])
+  const [planets, setPlanets] = useState([])
+  // const [loading, setLoading] = useState(true);
+  const cardsPerRow = 5
 
   useEffect(() => {
     fetchCharacters()
@@ -20,6 +21,7 @@ function CharacterCard({ characterCard }) {
     const res = await fetch(`${api_url}/people`)
     const data = await res.json()
     setCharacters(data.results)
+    console.log(data.results)
   }
 
   const setCardLayout = () => {
