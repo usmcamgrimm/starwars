@@ -1,30 +1,38 @@
-// import { Pagination } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react'
+import Pagination from 'react-bootstrap/Pagination'
 
-function CardPagination({ charactersPerPage, totalCharacters, paginate }) {
-    const pageNumbers = []
+function CharPagination(props) {
+  const [active, setActive] = useState(1)  
+  const pageNumbers = []
 
-    for (let i = 1; i <= Math.ceil(totalCharacters / charactersPerPage); i++) {
-        pageNumbers.push(i)
-    }
+  useEffect(() => {
+    setActive(props.activePage);
+  }, [props.activePage])
 
-    return (
-      <nav>
-        <ul className="pagination">
-          {pageNumbers.map(number => (
-            <li key={number} className="page-item">
-              <a onClick={() => paginate(number)} href="!#" className="page-link">
-                {number}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      // <nav>
-      //   <Pagination>
-      //     {pageNumbers}
-      //   </Pagination>
-      // </nav>
-    )
+  function handleClick(page) {
+      setActive(page);
+      props.handleNewPage(page);
+  }
+
+  for (let number = 1; number <= props.paginationCount; number++) {
+      pageNumbers.push(
+        <Pagination.Item 
+          key={number} 
+          active={number === active} 
+          onClick={() => { handleClick(number) }}
+        >
+          {number}
+        </Pagination.Item>
+      )
+  }
+
+  return (
+    <nav>
+      <Pagination>
+        {pageNumbers}
+      </Pagination>
+    </nav>
+  )
 }
 
-export default CardPagination
+export default CharPagination
